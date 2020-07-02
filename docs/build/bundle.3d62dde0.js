@@ -601,7 +601,7 @@ eval("__webpack_require__.r(__webpack_exports__);\n/* harmony import */ var core
 /***/ (function(module, __webpack_exports__, __webpack_require__) {
 
 "use strict";
-eval("__webpack_require__.r(__webpack_exports__);\n/* harmony import */ var _components_mixins_button__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! @/components/mixins/button */ \"./src/components/mixins/button.js\");\n/* harmony import */ var _components_mixins_mouse__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! @/components/mixins/mouse */ \"./src/components/mixins/mouse.js\");\n\n\n/**\r\n * Classic button with different color, sizes and states\r\n * @displayName Button\r\n */\n\n/* harmony default export */ __webpack_exports__[\"default\"] = ({\n  name: 'IButton',\n  functional: false,\n  inheritAttrs: true,\n  mixins: [_components_mixins_button__WEBPACK_IMPORTED_MODULE_0__[\"default\"], _components_mixins_mouse__WEBPACK_IMPORTED_MODULE_1__[\"default\"]],\n  render: function render(h) {\n    return h(this.isAnchor ? 'a' : 'button', {\n      class: this.classes,\n      attrs: {\n        disabled: this.disabled || this.loading,\n        href: this.isAnchor ? this.href : false\n      },\n      on: {\n        /**\r\n         * Emits when user clicks\r\n         */\n        click: this.onClick\n      }\n    }, [this.loading ? h('span', {\n      class: 'i-animate i-animate-infinite i-animate-rotate'\n    }, '⌛') : this.$slots.default]);\n  }\n});\n\n//# sourceURL=webpack:///./src/components/i-button/i-button.js?");
+eval("__webpack_require__.r(__webpack_exports__);\n/* harmony import */ var _mixins_button__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! @/mixins/button */ \"./src/mixins/button.js\");\n/* harmony import */ var _mixins_mouse__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! @/mixins/mouse */ \"./src/mixins/mouse.js\");\n\n\n/**\r\n * Classic button with different color, sizes and states\r\n * @displayName Button\r\n */\n\n/* harmony default export */ __webpack_exports__[\"default\"] = ({\n  name: 'IButton',\n  functional: false,\n  inheritAttrs: true,\n  mixins: [_mixins_button__WEBPACK_IMPORTED_MODULE_0__[\"default\"], _mixins_mouse__WEBPACK_IMPORTED_MODULE_1__[\"default\"]],\n  render: function render(h) {\n    return h(this.isAnchor ? 'a' : 'button', {\n      class: this.classes,\n      attrs: {\n        disabled: this.disabled || this.loading,\n        href: this.isAnchor ? this.href : false\n      },\n      on: {\n        /**\r\n         * Emits when user clicks\r\n         */\n        click: this.onClick\n      }\n    }, [this.loading ? h('span', {\n      class: 'i-animate i-animate-infinite i-animate-rotate'\n    }, '⌛') : this.$slots.default]);\n  }\n});\n\n//# sourceURL=webpack:///./src/components/i-button/i-button.js?");
 
 /***/ }),
 
@@ -797,27 +797,62 @@ eval("__webpack_require__.r(__webpack_exports__);\n/* harmony import */ var core
 
 /***/ }),
 
-/***/ "./src/components/mixins/button.js":
-/*!*****************************************!*\
-  !*** ./src/components/mixins/button.js ***!
-  \*****************************************/
-/*! exports provided: default */
-/***/ (function(module, __webpack_exports__, __webpack_require__) {
+/***/ "./src/directives sync recursive i-[\\w-]+\\.(?!(vue|js|jsx))?[^.]*$":
+/*!***************************************************************!*\
+  !*** ./src/directives sync i-[\w-]+\.(?!(vue|js|jsx))?[^.]*$ ***!
+  \***************************************************************/
+/*! no static exports found */
+/***/ (function(module, exports, __webpack_require__) {
 
-"use strict";
-eval("__webpack_require__.r(__webpack_exports__);\n/* harmony import */ var _utils_class__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! ../../utils/class */ \"./src/utils/class.js\");\n\n/* harmony default export */ __webpack_exports__[\"default\"] = ({\n  props: {\n    /**\r\n     * The color for the background background\r\n     * @values default, primary, secondary, success, warning, danger\r\n     */\n    color: {\n      type: String,\n      default: 'default'\n    },\n\n    /**\r\n     * This will be disabled the button\r\n     */\n    disabled: {\n      type: Boolean,\n      default: false\n    },\n\n    /**\r\n     * Make the dimension equal, Must contain icon only\r\n     */\n    icon: {\n      type: Boolean,\n      default: false\n    },\n\n    /**\r\n     * It will set 100% of the width\r\n     */\n    fullWidth: {\n      type: Boolean,\n      default: false\n    },\n\n    /**\r\n     * Make the button dashed outline without any selector modifiers\r\n     */\n    ghost: {\n      type: Boolean,\n      default: false\n    },\n\n    /**\r\n     * If the button is anchor you can specify the URL\r\n     */\n    href: {\n      type: String,\n      default: null\n    },\n\n    /**\r\n     * You can set to the button if the form is loading\r\n     * to avoid clickable and change into loading icon\r\n     */\n    loading: {\n      type: Boolean,\n      default: false\n    },\n\n    /**\r\n     * It will remove the background and change into\r\n     * border. The color will be based on :color prop\r\n     */\n    outline: {\n      type: Boolean,\n      default: false\n    },\n\n    /**\r\n     * Specify the specific dimension\r\n     * @values small, large\r\n     */\n    size: {\n      type: String,\n      default: null\n    },\n\n    /**\r\n     * If this button is text without background\r\n     */\n    text: {\n      type: Boolean,\n      default: false\n    }\n  },\n  computed: {\n    classes: function classes() {\n      return Object(_utils_class__WEBPACK_IMPORTED_MODULE_0__[\"joinClass\"])('i-button', this.text ? \"i-button-text i-button-text-\".concat(this.color) : this.ghost ? 'i-button-ghost' : this.outline ? \"i-button-outline i-button-outline-\".concat(this.color) : this.color && \"i-button-\".concat(this.color), this.size && \"i-button-\".concat(this.size), this.icon ? 'i-button-icon' : this.fullWidth && 'i-width-1-1');\n    },\n    isAnchor: function isAnchor() {\n      return this.href !== null;\n    }\n  }\n});\n\n//# sourceURL=webpack:///./src/components/mixins/button.js?");
+eval("var map = {\n\t\"./i-margin/i-margin.js\": \"./src/directives/i-margin/i-margin.js\"\n};\n\n\nfunction webpackContext(req) {\n\tvar id = webpackContextResolve(req);\n\treturn __webpack_require__(id);\n}\nfunction webpackContextResolve(req) {\n\tif(!__webpack_require__.o(map, req)) {\n\t\tvar e = new Error(\"Cannot find module '\" + req + \"'\");\n\t\te.code = 'MODULE_NOT_FOUND';\n\t\tthrow e;\n\t}\n\treturn map[req];\n}\nwebpackContext.keys = function webpackContextKeys() {\n\treturn Object.keys(map);\n};\nwebpackContext.resolve = webpackContextResolve;\nmodule.exports = webpackContext;\nwebpackContext.id = \"./src/directives sync recursive i-[\\\\w-]+\\\\.(?!(vue|js|jsx))?[^.]*$\";\n\n//# sourceURL=webpack:///(vue%7Cjs%7Cjsx))?./src/directives_sync_i-%5B\\w-%5D+\\.(?");
 
 /***/ }),
 
-/***/ "./src/components/mixins/mouse.js":
-/*!****************************************!*\
-  !*** ./src/components/mixins/mouse.js ***!
-  \****************************************/
+/***/ "./src/directives/i-margin/i-margin.js":
+/*!*********************************************!*\
+  !*** ./src/directives/i-margin/i-margin.js ***!
+  \*********************************************/
 /*! exports provided: default */
 /***/ (function(module, __webpack_exports__, __webpack_require__) {
 
 "use strict";
-eval("__webpack_require__.r(__webpack_exports__);\n/* harmony default export */ __webpack_exports__[\"default\"] = ({\n  methods: {\n    /**\r\n     * Emits the function that has been passed.\r\n     */\n    onClick: function onClick(event) {\n      this.$emit('click', event);\n    }\n  }\n});\n\n//# sourceURL=webpack:///./src/components/mixins/mouse.js?");
+eval("__webpack_require__.r(__webpack_exports__);\n/**\r\n * A utility to add spacing between components\r\n * @displayName Margin\r\n */\n/* harmony default export */ __webpack_exports__[\"default\"] = ({\n  bind: function bind(el, binding) {\n    var size = binding.value || null;\n\n    if (binding.modifiers.remove) {\n      if (binding.modifiers.top) {\n        el.classList.add('i-margin-remove-top');\n      } else if (binding.modifiers.left) {\n        el.classList.add('i-margin-remove-left');\n      } else if (binding.modifiers.bottom) {\n        el.classList.add('i-margin-remove-bottom');\n      } else if (binding.modifiers.right) {\n        el.classList.add('i-margin-remove-right');\n      } else {\n        el.classList.add('i-margin-remove');\n      }\n    } else {\n      if (binding.modifiers.top) {\n        if (size) {\n          el.classList.add(\"i-margin-\".concat(size, \"-top\"));\n        } else {\n          el.classList.add(\"i-margin-top\");\n        }\n      } else if (binding.modifiers.left) {\n        if (size) {\n          el.classList.add(\"i-margin-\".concat(size, \"-left\"));\n        } else {\n          el.classList.add(\"i-margin-left\");\n        }\n      } else if (binding.modifiers.bottom) {\n        if (size) {\n          el.classList.add(\"i-margin-\".concat(size, \"-bottom\"));\n        } else {\n          el.classList.add(\"i-margin-bottom\");\n        }\n      } else if (binding.modifiers.right) {\n        if (size) {\n          el.classList.add(\"i-margin-\".concat(size, \"-right\"));\n        } else {\n          el.classList.add(\"i-margin-right\");\n        }\n      } else {\n        if (size) {\n          el.classList.add(\"i-margin-\".concat(size));\n        } else {\n          el.classList.add(\"i-margin\");\n        }\n      }\n    }\n  }\n});\n\n//# sourceURL=webpack:///./src/directives/i-margin/i-margin.js?");
+
+/***/ }),
+
+/***/ "./src/directives/index.js":
+/*!*********************************!*\
+  !*** ./src/directives/index.js ***!
+  \*********************************/
+/*! no exports provided */
+/***/ (function(module, __webpack_exports__, __webpack_require__) {
+
+"use strict";
+eval("__webpack_require__.r(__webpack_exports__);\n/* harmony import */ var core_js_modules_es_array_for_each__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! core-js/modules/es.array.for-each */ \"./node_modules/core-js/modules/es.array.for-each.js\");\n/* harmony import */ var core_js_modules_es_array_for_each__WEBPACK_IMPORTED_MODULE_0___default = /*#__PURE__*/__webpack_require__.n(core_js_modules_es_array_for_each__WEBPACK_IMPORTED_MODULE_0__);\n/* harmony import */ var core_js_modules_es_object_to_string__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! core-js/modules/es.object.to-string */ \"./node_modules/core-js/modules/es.object.to-string.js\");\n/* harmony import */ var core_js_modules_es_object_to_string__WEBPACK_IMPORTED_MODULE_1___default = /*#__PURE__*/__webpack_require__.n(core_js_modules_es_object_to_string__WEBPACK_IMPORTED_MODULE_1__);\n/* harmony import */ var core_js_modules_es_regexp_exec__WEBPACK_IMPORTED_MODULE_2__ = __webpack_require__(/*! core-js/modules/es.regexp.exec */ \"./node_modules/core-js/modules/es.regexp.exec.js\");\n/* harmony import */ var core_js_modules_es_regexp_exec__WEBPACK_IMPORTED_MODULE_2___default = /*#__PURE__*/__webpack_require__.n(core_js_modules_es_regexp_exec__WEBPACK_IMPORTED_MODULE_2__);\n/* harmony import */ var core_js_modules_es_string_replace__WEBPACK_IMPORTED_MODULE_3__ = __webpack_require__(/*! core-js/modules/es.string.replace */ \"./node_modules/core-js/modules/es.string.replace.js\");\n/* harmony import */ var core_js_modules_es_string_replace__WEBPACK_IMPORTED_MODULE_3___default = /*#__PURE__*/__webpack_require__.n(core_js_modules_es_string_replace__WEBPACK_IMPORTED_MODULE_3__);\n/* harmony import */ var core_js_modules_es_string_split__WEBPACK_IMPORTED_MODULE_4__ = __webpack_require__(/*! core-js/modules/es.string.split */ \"./node_modules/core-js/modules/es.string.split.js\");\n/* harmony import */ var core_js_modules_es_string_split__WEBPACK_IMPORTED_MODULE_4___default = /*#__PURE__*/__webpack_require__.n(core_js_modules_es_string_split__WEBPACK_IMPORTED_MODULE_4__);\n/* harmony import */ var core_js_modules_web_dom_collections_for_each__WEBPACK_IMPORTED_MODULE_5__ = __webpack_require__(/*! core-js/modules/web.dom-collections.for-each */ \"./node_modules/core-js/modules/web.dom-collections.for-each.js\");\n/* harmony import */ var core_js_modules_web_dom_collections_for_each__WEBPACK_IMPORTED_MODULE_5___default = /*#__PURE__*/__webpack_require__.n(core_js_modules_web_dom_collections_for_each__WEBPACK_IMPORTED_MODULE_5__);\n/* harmony import */ var core_js_modules_web_dom_collections_iterator__WEBPACK_IMPORTED_MODULE_6__ = __webpack_require__(/*! core-js/modules/web.dom-collections.iterator */ \"./node_modules/core-js/modules/web.dom-collections.iterator.js\");\n/* harmony import */ var core_js_modules_web_dom_collections_iterator__WEBPACK_IMPORTED_MODULE_6___default = /*#__PURE__*/__webpack_require__.n(core_js_modules_web_dom_collections_iterator__WEBPACK_IMPORTED_MODULE_6__);\n/* harmony import */ var vue__WEBPACK_IMPORTED_MODULE_7__ = __webpack_require__(/*! vue */ \"./node_modules/vue/dist/vue.esm.js\");\n/* harmony import */ var lodash_upperFirst__WEBPACK_IMPORTED_MODULE_8__ = __webpack_require__(/*! lodash/upperFirst */ \"./node_modules/lodash/upperFirst.js\");\n/* harmony import */ var lodash_upperFirst__WEBPACK_IMPORTED_MODULE_8___default = /*#__PURE__*/__webpack_require__.n(lodash_upperFirst__WEBPACK_IMPORTED_MODULE_8__);\n/* harmony import */ var lodash_camelCase__WEBPACK_IMPORTED_MODULE_9__ = __webpack_require__(/*! lodash/camelCase */ \"./node_modules/lodash/camelCase.js\");\n/* harmony import */ var lodash_camelCase__WEBPACK_IMPORTED_MODULE_9___default = /*#__PURE__*/__webpack_require__.n(lodash_camelCase__WEBPACK_IMPORTED_MODULE_9__);\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\nvar requireComponent = __webpack_require__(\"./src/directives sync recursive i-[\\\\w-]+\\\\.(?!(vue|js|jsx))?[^.]*$\"); // For each matching file name...\n\n\nrequireComponent.keys().forEach(function (fileName) {\n  // Get the component config\n  var componentConfig = requireComponent(fileName); // Get the PascalCase version of the component name\n\n  var componentName = lodash_upperFirst__WEBPACK_IMPORTED_MODULE_8___default()(lodash_camelCase__WEBPACK_IMPORTED_MODULE_9___default()(fileName // get files on the folder\n  .split('/')[2] // Remove the \"./_\" from the beginning\n  .replace(/^\\.\\/_/, '') // Remove the file extension from the end\n  .replace(/\\.\\w+$/, ''))); // Globally register the component\n\n  vue__WEBPACK_IMPORTED_MODULE_7__[\"default\"].directive(componentName, componentConfig.default || componentConfig);\n});\n\n//# sourceURL=webpack:///./src/directives/index.js?");
+
+/***/ }),
+
+/***/ "./src/mixins/button.js":
+/*!******************************!*\
+  !*** ./src/mixins/button.js ***!
+  \******************************/
+/*! exports provided: default */
+/***/ (function(module, __webpack_exports__, __webpack_require__) {
+
+"use strict";
+eval("__webpack_require__.r(__webpack_exports__);\n/* harmony import */ var _utils_class__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! @/utils/class */ \"./src/utils/class.js\");\n\n/* harmony default export */ __webpack_exports__[\"default\"] = ({\n  props: {\n    /**\r\n     * The color for the background background\r\n     * @values default, primary, secondary, success, warning, danger\r\n     */\n    color: {\n      type: String,\n      default: 'default'\n    },\n\n    /**\r\n     * This will be disabled the button\r\n     */\n    disabled: {\n      type: Boolean,\n      default: false\n    },\n\n    /**\r\n     * Make the dimension equal, Must contain icon only\r\n     */\n    icon: {\n      type: Boolean,\n      default: false\n    },\n\n    /**\r\n     * It will set 100% of the width\r\n     */\n    fullWidth: {\n      type: Boolean,\n      default: false\n    },\n\n    /**\r\n     * Make the button dashed outline without any selector modifiers\r\n     */\n    ghost: {\n      type: Boolean,\n      default: false\n    },\n\n    /**\r\n     * If the button is anchor you can specify the URL\r\n     */\n    href: {\n      type: String,\n      default: null\n    },\n\n    /**\r\n     * You can set to the button if the form is loading\r\n     * to avoid clickable and change into loading icon\r\n     */\n    loading: {\n      type: Boolean,\n      default: false\n    },\n\n    /**\r\n     * It will remove the background and change into\r\n     * border. The color will be based on :color prop\r\n     */\n    outline: {\n      type: Boolean,\n      default: false\n    },\n\n    /**\r\n     * Specify the specific dimension\r\n     * @values small, large\r\n     */\n    size: {\n      type: String,\n      default: null\n    },\n\n    /**\r\n     * If this button is text without background\r\n     */\n    text: {\n      type: Boolean,\n      default: false\n    }\n  },\n  computed: {\n    classes: function classes() {\n      return Object(_utils_class__WEBPACK_IMPORTED_MODULE_0__[\"joinClass\"])('i-button', this.text ? \"i-button-text i-button-text-\".concat(this.color) : this.ghost ? 'i-button-ghost' : this.outline ? \"i-button-outline i-button-outline-\".concat(this.color) : this.color && \"i-button-\".concat(this.color), this.size && \"i-button-\".concat(this.size), this.icon ? 'i-button-icon' : this.fullWidth && 'i-width-1-1');\n    },\n    isAnchor: function isAnchor() {\n      return this.href !== null;\n    }\n  }\n});\n\n//# sourceURL=webpack:///./src/mixins/button.js?");
+
+/***/ }),
+
+/***/ "./src/mixins/mouse.js":
+/*!*****************************!*\
+  !*** ./src/mixins/mouse.js ***!
+  \*****************************/
+/*! exports provided: default */
+/***/ (function(module, __webpack_exports__, __webpack_require__) {
+
+"use strict";
+eval("__webpack_require__.r(__webpack_exports__);\n/* harmony default export */ __webpack_exports__[\"default\"] = ({\n  methods: {\n    /**\r\n     * Emits the function that has been passed.\r\n     */\n    onClick: function onClick(event) {\n      this.$emit('click', event);\n    }\n  }\n});\n\n//# sourceURL=webpack:///./src/mixins/mouse.js?");
 
 /***/ }),
 
@@ -845,13 +880,13 @@ eval("__webpack_require__.r(__webpack_exports__);\n/* harmony export (binding) *
 /***/ }),
 
 /***/ 0:
-/*!************************************************************************************************************!*\
-  !*** multi ./src/scss/app.scss ./src/components/index.js ./node_modules/vue-styleguidist/lib/client/index ***!
-  \************************************************************************************************************/
+/*!**************************************************************************************************************************************!*\
+  !*** multi ./src/scss/app.scss ./src/directives/index.js ./src/components/index.js ./node_modules/vue-styleguidist/lib/client/index ***!
+  \**************************************************************************************************************************************/
 /*! no static exports found */
 /***/ (function(module, exports, __webpack_require__) {
 
-eval("__webpack_require__(/*! C:\\Users\\JeraldAustero\\Sitepoint\\vue-istilo\\vue-istilo.loc\\src\\scss\\app.scss */\"./src/scss/app.scss\");\n__webpack_require__(/*! C:\\Users\\JeraldAustero\\Sitepoint\\vue-istilo\\vue-istilo.loc\\src\\components\\index.js */\"./src/components/index.js\");\nmodule.exports = __webpack_require__(/*! C:\\Users\\JeraldAustero\\Sitepoint\\vue-istilo\\vue-istilo.loc\\node_modules\\vue-styleguidist\\lib\\client\\index */\"./node_modules/vue-styleguidist/lib/client/index.js\");\n\n\n//# sourceURL=webpack:///multi_./src/scss/app.scss_./src/components/index.js_./node_modules/vue-styleguidist/lib/client/index?");
+eval("__webpack_require__(/*! C:\\Users\\jeral\\Sitepoint\\vue-istilo\\src\\scss\\app.scss */\"./src/scss/app.scss\");\n__webpack_require__(/*! C:\\Users\\jeral\\Sitepoint\\vue-istilo\\src\\directives\\index.js */\"./src/directives/index.js\");\n__webpack_require__(/*! C:\\Users\\jeral\\Sitepoint\\vue-istilo\\src\\components\\index.js */\"./src/components/index.js\");\nmodule.exports = __webpack_require__(/*! C:\\Users\\jeral\\Sitepoint\\vue-istilo\\node_modules\\vue-styleguidist\\lib\\client\\index */\"./node_modules/vue-styleguidist/lib/client/index.js\");\n\n\n//# sourceURL=webpack:///multi_./src/scss/app.scss_./src/directives/index.js_./src/components/index.js_./node_modules/vue-styleguidist/lib/client/index?");
 
 /***/ })
 
