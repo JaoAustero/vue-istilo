@@ -188,7 +188,7 @@ module.exports = {
     {
         color:
         {
-            ribbonBackground: '#2591D0',
+            ribbonBackground: '#EB4960',
             ribbonText: '#FFFFFF',
         }
     },
