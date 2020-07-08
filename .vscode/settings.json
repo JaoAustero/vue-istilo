@@ -1,0 +1,63 @@
+{
+    // Spacing
+    "editor.tabSize": 4,
+    "editor.trimAutoWhitespace": true,
+    "files.trimTrailingWhitespace": true,
+    "files.eol": "\n",
+    "files.insertFinalNewline": true,
+
+    // Files
+    "files.exclude":
+    {
+        "**/*.log": true,
+        "**/.*log*": true,
+        "**/dist": true,
+        "**/coverage": true,
+    },
+    "files.associations":
+    {
+        ".markdownlintrc": "jsonc",
+    },
+    "explorer.compactFolders": false,
+
+    // Event Triggers
+    "editor.formatOnSave": true,
+    "editor.codeActionsOnSave":
+    {
+        "source.fixAll.eslint": true,
+        "source.fixAll.stylelint": true,
+        "source.fixAll.markdownlint": true,
+    },
+
+    // HTML
+    "html.format.enable": false,
+    "html.format.indentInnerHtml": true,
+    "emmet.triggerExpansionOnTab": true,
+    "emmet.includeLanguages":
+    {
+        "vue-html": "html",
+    },
+
+    // JS
+
+    "javascript.format.enable": false,
+    "json.format.enable": false,
+
+    // CSS
+    "css.validate": false,
+    "scss.validate": false,
+
+    // Markdown
+    "[markdown]":
+    {
+        "editor.wordWrap": "wordWrapColumn",
+        "editor.wordWrapColumn": 80,
+    },
+
+    // Editors
+    "editor.rulers":
+    [
+        80,     // Comments
+        100,    // Code
+    ],
+}
