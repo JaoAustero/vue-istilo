@@ -1,0 +1,15 @@
+{
+    "ISTButton":
+    {
+        "scope": "vue",
+        "prefix": "ISTButton",
+        "body":
+        [
+            "<ist-button",
+            "    :color=\"'primary'\">",
+            "\t${4}",
+            "</ist-button>"
+        ],
+        "description": "Vue Istilo Button",
+    },
+}
