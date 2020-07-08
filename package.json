@@ -9,7 +9,7 @@
         "lint": "vue-cli-service lint",
         "styleguide": "vue-cli-service styleguidist",
         "styleguide:build": "vue-cli-service styleguidist:build",
-        "docs:dev": "vuepress dev docs",
+        "docs": "vuepress dev docs",
         "docs:build": "vuepress build docs"
     },
     "dependencies": {
