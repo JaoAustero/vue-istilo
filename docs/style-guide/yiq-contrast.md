@@ -1,1 +1,0 @@
-# YIQ Contrast
