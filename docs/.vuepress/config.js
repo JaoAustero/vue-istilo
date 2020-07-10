@@ -37,7 +37,7 @@ module.exports = {
      *
      * @see {@link https://vuepress.vuejs.org/config/#dest}
      */
-    dest: 'page',
+    dest: 'docs/dist',
 
     /**
      * Specify extra files to watch.
