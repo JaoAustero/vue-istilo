@@ -135,6 +135,17 @@ module.exports = {
     {
         activeHeaderLinks: true,
         displayAllHeaders: true,
+        nav:
+        [
+            {
+                text: 'Github',
+                link: 'https://github.com/istilo/vue-istilo',
+            },
+            {
+                text: 'Patreon',
+                link: 'https://www.patreon.com/jaoaustero',
+            },
+        ],
         sidebar:
         [
             '/',
@@ -149,7 +160,73 @@ module.exports = {
                     },
                     {
                         title: 'Release',
-                        path: '/getting-started/release',
+                        path: '/getting-started/release-notes',
+                    },
+                    {
+                        title: 'Using with Preprocessors',
+                        path: '/getting-started/using-with-preprocessors',
+                    },
+                    {
+                        title: 'Browser Support',
+                        path: '/getting-started/browser-support',
+                    },
+                ],
+            },
+            {
+                title: 'Core Architecture',
+                collapsable: false,
+                children:
+                [
+                    {
+                        title: 'Responsive Design',
+                        path: '/core-architecture/responsive-design',
+                    },
+                    {
+                        title: 'Psuedo-Class Modifiers',
+                        path: '/core-architecture/psuedo-class-modifiers',
+                    },
+                    {
+                        title: 'Adding Base Styles',
+                        path: '/core-architecture/adding-base-styles',
+                    },
+                    {
+                        title: 'Functions and Mixins',
+                        path: '/core-architecture/functions-and-mixins',
+                    },
+                ],
+            },
+            {
+                title: 'Style Guide',
+                collapsable: false,
+                children:
+                [
+                    {
+                        title: 'Configuration',
+                        path: '/style-guide/configuration',
+                    },
+                    {
+                        title: 'Theme',
+                        path: '/style-guide/theme',
+                    },
+                    {
+                        title: 'Breakpoints',
+                        path: '/style-guide/breakpoints',
+                    },
+                    {
+                        title: 'Typography',
+                        path: '/style-guide/typography',
+                    },
+                    {
+                        title: 'Colors',
+                        path: '/style-guide/colors',
+                    },
+                    {
+                        title: 'YIQ Contrast',
+                        path: '/style-guide/yiq-contrast',
+                    },
+                    {
+                        title: 'Border',
+                        path: '/style-guide/border',
                     },
                 ],
             },
@@ -169,6 +246,6 @@ module.exports = {
          *
          * @see {@link https://vuepress.vuejs.org/config/#markdown-linenumbers}
          */
-        lineNumbers: true,
+        lineNumbers: false,
     },
 };
