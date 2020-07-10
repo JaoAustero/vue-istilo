@@ -1,3 +1,0 @@
-# Installation
-
-waazzup asdqwjd wkqj
