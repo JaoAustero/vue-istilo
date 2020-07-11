@@ -7,7 +7,7 @@ module.exports = {
      *
      * @see {@link https://vuepress.vuejs.org/config/#base}
      */
-    base: '/',
+    base: '/vue-istilo/',
 
     /**
      * VuePress uses cache-loader by default to greatly speed up the compilation of webpack.
