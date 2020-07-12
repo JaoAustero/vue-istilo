@@ -230,6 +230,17 @@ module.exports = {
                     },
                 ],
             },
+            {
+                title: 'Components',
+                collapsable: false,
+                children:
+                [
+                    {
+                        title: 'Button',
+                        path: '/components/button',
+                    },
+                ],
+            },
         ],
     },
 
