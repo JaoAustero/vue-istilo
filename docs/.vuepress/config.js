@@ -57,7 +57,26 @@ module.exports = {
      *
      * @see {@link https://vuepress.vuejs.org/config/#head}
      */
-    head: [],
+    head:
+    [
+        ['link', { rel: 'icon', type: 'image/x-icon', href: '/favicon.ico' }],
+        ['meta', { charset: 'utf-8' }],
+        ['meta', { name: 'viewport', content: 'width=device-width, initial-scale=1' }],
+        ['meta', { name: 'title', content: 'Oruga UI - Vue Js' }],
+        ['meta', { name: 'og:locale', content: 'en_US' }],
+        ['meta', { name: 'og:type', content: 'website' }],
+        ['meta', { name: 'og:url', content: 'https://istilo.github.io/vue-istilo/' }],
+        ['meta', { name: 'og:title', content: 'UI components for Vue.js and CSS framework agnostic' }],
+        ['meta', { name: 'og:site_name', content: 'Oruga' }],
+        ['meta', { name: 'og:description', content: "Oruga UI is like a caterpillar, minimal and yet functional. It's in your hands turning it into a butterfly" }],
+        ['meta', { name: 'og:image', content: 'https://istilo.github.io/vue-istilo/logo-logo.png' }],
+        ['meta', { name: 'og:image:type', content: 'image/png' }],
+        ['meta', { name: 'twitter:card', content: 'summary_large_image' }],
+        ['meta', { name: 'twitter:site', content: '@jaoaustero' }],
+        ['meta', { name: 'twitter:title', content: 'A lightweight Vue CSS framework for website interface.' }],
+        ['meta', { name: 'twitter:description', content: "Oruga UI is like a caterpillar, minimal and yet functional. It's in your hands turning it into a butterfly" }],
+        ['meta', { name: 'twitter:image', content: 'https://istilo.github.io/vue-istilo/logo-banner.png' }]
+    ],
 
     /**
      * Specify the host to use for the dev server.
@@ -126,7 +145,7 @@ module.exports = {
      *
      * @see {@link https://vuepress.vuejs.org/config/#title}
      */
-    title: 'Vue Istilo CSS',
+    title: 'Istilo UI',
 
     /**
      * Theme
@@ -135,6 +154,7 @@ module.exports = {
     {
         activeHeaderLinks: true,
         displayAllHeaders: true,
+        logo: '/istilo-logo.svg',
         nav:
         [
             {
@@ -148,7 +168,6 @@ module.exports = {
         ],
         sidebar:
         [
-            '/',
             {
                 title: 'Getting Started',
                 collapsable: false,
